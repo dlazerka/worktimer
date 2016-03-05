@@ -6,7 +6,6 @@ module: default
 threadsafe: true
 
 
-
 # Default
 runtime_config:
   jdk: openjdk8
@@ -17,8 +16,9 @@ network:
     - 8080 # Default
     #- 8081
     #- 8082:8083
-#instance_tag: <tag-name>
-name: default
+  #instance_tag: <tag-name>
+  name: default
+
 
 resources:
   cpu: .5
@@ -34,15 +34,16 @@ resources:
 #  healthy_threshold: 2
 #  restart_threshold: 60
 
-beta-settings:
-  java_quickstart: true
-
 #automatic_scaling:
 #  min_num_instances: 5
 #  max_num_instances: 20
 #  cool_down_period_sec: 120 # default value
 #  cpu_utilization:
 #    target_utilization: 0.5
+
+beta_settings:
+  java_quickstart: true
+
 
 handlers:
 - url: /.*
@@ -51,5 +52,5 @@ handlers:
   login: admin
   auth_fail_action: redirect
 
-env_variables:
-  java.util.logging.config.file: 'WEB-INF/logging.properties'
+#env_variables:
+#  java.util.logging.config.file: 'WEB-INF/logging.properties'

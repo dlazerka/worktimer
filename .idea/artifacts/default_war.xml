@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="default:war">
+    <output-path>$PROJECT_DIR$/gae/default/target</output-path>
+    <root id="archive" name="gae-default-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="default:war exploded" />
+    </root>
+  </artifact>
+</component>
