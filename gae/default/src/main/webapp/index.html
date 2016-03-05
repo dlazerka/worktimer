@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" ng-csp ng-app="me.lazerka.worktimer">
+<head>
+    <title>Worktimer</title>
+    <meta charset="utf-8"/>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.js" defer></script>
+    <!-- For ng-csp -->
+    <style type="text/css">
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+        .ng-cloak, .x-ng-cloak,
+        .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+
+        ng\:form {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript" src="index.js" defer></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            padding: 5px;
+            border: 1px gray solid;
+            text-align: center;
+        }
+        th {
+            border-bottom: 1px gray solid;
+        }
+        tr.even {
+            background-color: ghostwhite;
+        }
+        td {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body class="ng-cloak">
+<h1>Admin</h1>
+
+<div ng-controller="MainController as scope">
+    <h2>Worktimes</h2>
+
+    <div ng-show="scope.intervals">
+        <table>
+            <thead>
+            <tr >
+                <th>Description</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Duration</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <br/>
+    </div>
+
+    <div ng-show="scope.error" style="color: darkred;">
+        <br/>
+        Error {{scope.error.status}}: {{scope.error.statusText}}<br/>
+        {{scope.error.data}}
+    </div>
+</div>
+
+</body>
+</html>
+

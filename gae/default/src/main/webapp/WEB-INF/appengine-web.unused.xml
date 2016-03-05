@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+
+<!-- https://cloud.google.com/appengine/docs/managed-vms/java/configuring-your-app-with-appengine-web-xml -->
+
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+	<application>lazerka-worktimer</application>
+	<module>default</module>
+	<version>1-first</version>
+
+	<!-- Using Managed VMs. -->
+	<vm>true</vm>
+
+	<threadsafe>true</threadsafe>
+
+	<network>
+		<!-- Port 8080 is forwarded by default-->
+		<!--<forwarded-port>8080</forwarded-port>-->
+		<!--<forwarded-port>8081</forwarded-port>-->
+		<!--<forwarded-port>8082:8083</forwarded-port>-->
+		<instance-tag>default_instance</instance-tag>
+
+		<!-- By default -->
+		<!--<name>default</name>-->
+	</network>
+
+	<resources>
+		<!-- The number of cores; it can be a fraction less than one. -->
+		<cpu>.5</cpu>
+
+		<!-- RAM, in GB -->
+		<memory-gb>1</memory-gb>
+
+		<!-- Size in GB. The minimum is 10GB and maximum is 10240GB. -->
+		<disk-size-gb>10</disk-size-gb>
+	</resources>
+
+	<beta-settings>
+		<setting name="java_quickstart" value="true"/>
+	</beta-settings>
+
+	<!--
+	<health-check>
+		<enable-health-check>true</enable-health-check>
+		<check-interval-sec>5</check-interval-sec>
+		<timeout-sec>4</timeout-sec>
+		<unhealthy-threshold>2</unhealthy-threshold>
+		<healthy-threshold>2</healthy-threshold>
+		<restart-threshold>60</restart-threshold>
+	</health-check>
+	-->
+
+
+	<!--
+	<automatic-scaling-type>
+		<min-num-instances>5</min-num-instances>
+		<max-num-instances>20</max-num-instances>
+		<cool-down-period-sec>120</cool-down-period-sec>
+		<cpu-utilization>
+			<cpu-utilization>0.5</cpu-utilization>
+		</cpu-utilization>
+	</automatic-scaling-type>
+	-->
+
+	<use-google-connector-j>true</use-google-connector-j>
+
+	<system-properties>
+		<property name="java.util.logging.config.file" value="WEB-INF/logging.properties"/>
+
+		<!--
+		<property name="myapp.maximum-message-length" value="140"/>
+		<property name="myapp.notify-every-n-signups" value="1000"/>
+		<property name="myapp.notify-url" value="http://www.example.com/signupnotify"/>
+		-->
+
+	</system-properties>
+
+	<!--
+	<env-variables>
+		<env-var name="DEFAULT_ENCODING" value="UTF-8" />
+	</env-variables>
+	-->
+
+	<static-files>
+		<include path="/favicon.ico"/>
+		<include path="/robots.txt"/>
+
+		<include path="/font/*" expiration="365d"/>
+
+		<include path="/image/**.png"/>
+		<include path="/image/**.jpeg"/>
+		<include path="/image/**.jpg"/>
+		<include path="/image/**.svg"/>
+
+		<include path="/**.js"/>
+		<include path="/**.css"/>
+		<include path="/**.html"/>
+	</static-files>
+
+</appengine-web-app>
