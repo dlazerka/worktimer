@@ -17,10 +17,10 @@
 		<!--<forwarded-port>8080</forwarded-port>-->
 		<!--<forwarded-port>8081</forwarded-port>-->
 		<!--<forwarded-port>8082:8083</forwarded-port>-->
-		<instance-tag>default_instance</instance-tag>
+		<!--<instance-tag>default_instance</instance-tag>-->
 
 		<!-- By default -->
-		<!--<name>default</name>-->
+		<name>default</name>
 	</network>
 
 	<resources>

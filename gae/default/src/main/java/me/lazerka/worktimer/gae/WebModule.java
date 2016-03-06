@@ -11,6 +11,7 @@ import com.googlecode.objectify.util.jackson.ObjectifyJacksonModule;
 import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.guice.JerseyServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
+import me.lazerka.worktimer.gae.api.IntervalResource;
 
 import java.util.Map;
 
@@ -28,7 +29,7 @@ class WebModule extends JerseyServletModule {
 
 		setUpJackson();
 
-		//bind(WorktimeResource.class);
+		bind(IntervalResource.class);
 	}
 
 	private Map<String, String> getJerseyParams() {

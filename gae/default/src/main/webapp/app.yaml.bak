@@ -51,6 +51,9 @@ handlers:
   secure: always
   login: admin
   auth_fail_action: redirect
+- url: /
+  static_files: index.html
+  upload: index.html
 
 #env_variables:
 #  java.util.logging.config.file: 'WEB-INF/logging.properties'

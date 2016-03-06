@@ -33,7 +33,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="default" target="1.7" />
+      <module name="default" target="1.8" />
       <module name="etl" target="1.5" />
       <module name="gae" target="1.5" />
       <module name="worktimer" target="1.5" />
