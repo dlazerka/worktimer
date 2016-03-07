@@ -1,5 +1,5 @@
 'use strict';
-angular.module('me.lazerka.worktimer', [])
+angular.module('name.dlazerka.worktimer', [])
 	.controller('MainController', function($http) {
 		var scope = this;
 		$http.get('/api/interval/list')

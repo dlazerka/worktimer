@@ -11,6 +11,7 @@ import com.googlecode.objectify.util.jackson.ObjectifyJacksonModule;
 import com.sun.jersey.api.core.PackagesResourceConfig;
 import com.sun.jersey.guice.JerseyServletModule;
 import com.sun.jersey.guice.spi.container.servlet.GuiceContainer;
+import me.lazerka.worktimer.gae.ah.StartResource;
 import me.lazerka.worktimer.gae.api.IntervalResource;
 
 import java.util.Map;
@@ -25,11 +26,12 @@ class WebModule extends JerseyServletModule {
 	protected void configureServlets() {
 		bind(UnhandledExceptionMapper.class);
 
-		serve("/api/*").with(GuiceContainer.class, getJerseyParams());
+		serve("/*").with(GuiceContainer.class, getJerseyParams());
 
 		setUpJackson();
 
 		bind(IntervalResource.class);
+		bind(StartResource.class);
 	}
 
 	private Map<String, String> getJerseyParams() {

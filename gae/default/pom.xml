@@ -201,15 +201,23 @@
 					</jvmFlags>
 				</configuration>
 			</plugin>
+
 			<plugin>
+				<!-- Docs: https://github.com/GoogleCloudPlatform/gcloud-maven-plugin -->
 				<groupId>com.google.appengine</groupId>
 				<artifactId>gcloud-maven-plugin</artifactId>
 				<version>2.0.9.95.v20160203</version>
 				<configuration>
-					<verbosity>debug</verbosity>
-					<log_level>debug</log_level>
-					<gcloud_directory>/home/dl/opt/google-cloud-sdk</gcloud_directory>
+					<promote>true</promote> <!-- Promote deployed version to default -->
+					<version>2-letsencrypt</version>
 					<gcloud_project>lazerka-worktimer</gcloud_project>
+					<runtime>java</runtime>
+
+
+					<verbosity>info</verbosity>
+					<log_level>info</log_level>
+					<gcloud_directory>/home/dl/opt/google-cloud-sdk</gcloud_directory>
+					<retain_upload_dir>true</retain_upload_dir>
 				<!--
 					<gcloud_directory>/usr/foo/private/google-cloud-sdk</gcloud_directory>
 					<version>specific_version</version>
@@ -218,6 +226,16 @@
 				-->
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>9.3.8.RC0</version>
+				<configuration>
+					<webAppSourceDirectory>${project.build.directory}/${project.build.finalName}</webAppSourceDirectory>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-checkstyle-plugin</artifactId>

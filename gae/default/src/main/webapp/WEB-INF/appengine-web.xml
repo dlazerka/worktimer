@@ -49,17 +49,14 @@
 	</health-check>
 	-->
 
-
-	<!--
-	<automatic-scaling-type>
-		<min-num-instances>5</min-num-instances>
-		<max-num-instances>20</max-num-instances>
+	<automatic-scaling>
+		<min-num-instances>1</min-num-instances>
+		<max-num-instances>10</max-num-instances>
 		<cool-down-period-sec>120</cool-down-period-sec>
 		<cpu-utilization>
-			<cpu-utilization>0.5</cpu-utilization>
+			<target-utilization>0.8</target-utilization>
 		</cpu-utilization>
-	</automatic-scaling-type>
-	-->
+	</automatic-scaling>
 
 	<use-google-connector-j>true</use-google-connector-j>
 
@@ -84,6 +81,12 @@
 		<include path="/favicon.ico"/>
 		<include path="/robots.txt"/>
 
+		<include path="/*.js"/>
+		<include path="/*.css"/>
+		<include path="/*.html"/>
+
+		<include path="/lib/*.js" expiration="365d"/>
+
 		<include path="/font/*" expiration="365d"/>
 
 		<include path="/image/**.png"/>
@@ -91,9 +94,8 @@
 		<include path="/image/**.jpg"/>
 		<include path="/image/**.svg"/>
 
-		<include path="/**.js"/>
-		<include path="/**.css"/>
-		<include path="/**.html"/>
+		<include path="/.well-known/acme-challenge/*"/>
+		<include path="/well-known/acme-challenge/*"/>
 	</static-files>
 
 </appengine-web-app>
