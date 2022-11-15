@@ -16,7 +16,7 @@
 		<appengine.app.name>lazerka-worktimer</appengine.app.name>
 
 		<appengine.target.version>1.9.32</appengine.target.version>
-		<jackson.version>2.10.0.pr3</jackson.version>
+		<jackson.version>2.12.7.1</jackson.version>
 		<jersey.version>1.19</jersey.version>
 		<slf4j.version>1.7.13</slf4j.version>
 	</properties>
